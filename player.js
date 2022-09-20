@@ -9,6 +9,7 @@ import { JumpingRight } from "./state.js";
 import { FallingLeft } from "./state.js";
 import { FallingRight } from "./state.js";
 import { GettingDownLeft } from "./state.js";
+import { GettingDownRight } from "./state.js";
 export default class Player{
     constructor(gameWidth,gameHeight){
         this.gameWidth = gameWidth;
@@ -18,7 +19,7 @@ export default class Player{
                         new RunningLeft(this), new RunningRight(this),
                         new JumpingLeft(this), new JumpingRight(this),
                         new FallingLeft(this), new FallingRight(this),
-                        new GettingDownLeft(this),];
+                        new GettingDownLeft(this),new GettingDownRight(this)];
         this.currentState = this.states[1];
         this.image = document.getElementById("dogImage");
         this.width = 200;

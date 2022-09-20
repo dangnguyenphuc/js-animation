@@ -213,6 +213,9 @@ export class JumpingRight extends State{
         else if(this.player.vy > 0) {
             this.player.setState(states.FALLING_RIGHT)
         }
+        else if(input === "PRESS Down"){
+            this.player.setState(states.GETTING_DOWN_RIGHT);
+        }
     }
 }
 export class FallingLeft extends State{
@@ -235,7 +238,7 @@ export class FallingLeft extends State{
         }
         else if(input === "PRESS Down"){
             this.player.setState(states.GETTING_DOWN_LEFT);
-        }        
+        }       
     }
 }
 export class FallingRight extends State{
@@ -256,6 +259,9 @@ export class FallingRight extends State{
         else if(input === "PRESS Left"){
             this.player.setState(states.FALLING_LEFT);
         }        
+        else if(input === "PRESS Down"){
+            this.player.setState(states.GETTING_DOWN_RIGHT);
+        }
     }
 }
 export class GettingDownLeft extends State{
@@ -272,13 +278,7 @@ export class GettingDownLeft extends State{
     handleInput(input){
         if(this.player.onGround()){
             this.player.setState(states.STANDING_LEFT);
-        }
-        if(input === "PRESS Right"){
-            this.player.setState(states.STANDING_RIGHT);
-        }
-        else if(input === "PRESS Left"){
-            this.player.setState(states.STANDING_LEFT);
-        }        
+        }      
     }
 }
 export class GettingDownRight extends State{
@@ -295,9 +295,6 @@ export class GettingDownRight extends State{
     handleInput(input){
         if(this.player.onGround()){
             this.player.setState(states.STANDING_RIGHT);
-        }
-        else if(input === "PRESS Left"){
-            this.player.setState(states.FALLING_LEFT);
-        }        
+        }      
     }
 }
